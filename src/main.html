@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="vendor/jquery.min.js"></script>
+    <link href="style.css" rel="stylesheet" />
+    <title id="doctitle">OpenView</title>
+  </head>
+  <body>
+
+    <img id="loading" class="loadinggif" src="ui/loading.gif">
+    
+    <div class="resultwindow" id="resultwindow">
+
+      <h1>OpenView</h1>
+      <button class="mainbtns" id="myBtn">Info</button>
+
+      <h2 id="maintitle" class="maintitle"></h2>
+
+      <button class="mainbtns" id="portscanbtn">NMAP</button>
+
+      <button class="mainbtns" id="return">Return</button>
+
+      <table id="resulttable" class="resulttable"></table>
+
+      <textarea rows="20" cols="75" class="nmapres" id="nmapres"></textarea>
+
+      <p id="resultwindowtitle"></p>
+      <p id="apitext"></p>
+    </div>
+    
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+
+        <h3>OpenView Toolkit</h3>
+        <p>
+          Thanks for choosing OpenView for your geo-ip information needs!
+        <br><br>
+        I look forward to keeping this open-source and updated.
+        <h3>Usage:</h3>
+        <b>Geo-IP</b>: Simply click the our Extension's icon in your browser to view insights about your current window and the server thats hosting it.
+        <br><br>
+        <b>NMAP</b>: Just click the "NMAP" button to run a quick NMAP scan. Scans common ports and returns port-service plus rdns records and latency. 
+        <br>
+        <h3>API Credits:</h3>
+        <b>Geo-IP: </b><a href="https://geoiplookup.io"><u>geoiplookup.io</u></a>.
+        <br>
+        <b>NMAP: </b><a href="https://hackertarget.com"><u>hackertarget.com</u></a>.
+      </p>
+    </div>
+    </div>
+  </body>
+<script src="scripts.js"></script>
+</html>

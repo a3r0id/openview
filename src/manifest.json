@@ -1,0 +1,26 @@
+{
+    "name": "OpenView",
+    "version": "1.0",
+    "description": "Instant, in-depth information on the host of the current window.",
+    "permissions": ["activeTab"],
+    "background": {
+      "scripts": ["scripts.js"],
+      "persistent": false
+    },
+    "browser_action": {
+      "default_popup": "main.html",
+      "default_icon": {
+        "16": "ui/icon.png",
+        "32": "ui/icon.png",
+        "48": "ui/icon.png",
+        "128": "ui/icon.png"
+      }
+    },
+    "icons": {
+      "16": "ui/icon.png",
+      "32": "ui/icon.png",
+      "48": "ui/icon.png",
+      "128": "ui/icon.png"
+    },
+    "manifest_version": 2
+}
