@@ -9,7 +9,7 @@
 ### How To Install (For Development):
 - Open Chrome Browser and head to `chrome://extensions`.
 - From your Extensions menu, enable developer mode in the right-hand corner.
-- Select "Load Unpacked" then, in your file browser, select our repo folder. (`.../openview-chrome-extension/src/`)
+- Select "Load Unpacked" then, in your file browser, select our repo directory. (`.../openview-chrome-extension/src/`)
 - Viola! You are now running OpenView!
 
 ### How To Use:
