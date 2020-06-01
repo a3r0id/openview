@@ -13,7 +13,7 @@
 - Viola! You are now running OpenView!
 
 ### How To Use:
-- **Geo-IP**: Simply click the our Extension's icon in your browser to view insights about your current window and the server thats hosting it.
+- **Geo-IP**: Simply click our Extension's icon in your browser to view insights about your current window and the server thats hosting it.
 - **NMAP**: Just click the "NMAP" button to run a quick NMAP scan. Scans common ports and returns port-service plus rdns records and latency.
 - Adding more features soon!
 
