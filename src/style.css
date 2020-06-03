@@ -1,23 +1,87 @@
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@175&display=swap');
-html,body
+html
 {
-  background-color: rgba(175, 175, 175, 0.300);
+  width: 440px;
+  height: 280px;
+}
+body
+{
+  top: 0;
+  /*background: rgba(175, 175, 175, 0.849);
+  background-color: rgba(175, 175, 175, 0.219);*/
   font-family: 'Public Sans', sans-serif;
 }
-.maintitle
+.infoheader
 {
-    display: none;
+  margin-top: 0;
+  position: relative;
+  top: -10px;
+  padding-left: 0%;
+  width: 100%;
 }
-.mainbtns
+.infoheaderp
 {
-  cursor: pointer;
+  margin: 0 auto;
+  background-color: silver;
+  align-items: right;
+  align-self: right;
+  align-content: right;
+  padding-left: 75%;
+}
+.infofooterp
+{
+  margin: 0 auto;
+  background-color: silver;
+  align-items: left;
+  align-self: left;
+  align-content: left;
+  padding-right: 75%;
+  padding-left: 3%;
+}
+.infofooter
+{
+  top: 50vh;
+  margin-top: 0;
+  position: relative;
+  text-align: left;
+  text-justify: auto;
+  white-space: nowrap;
 }
 .resultwindow
 {
+  background-color: #acacac;
   margin: 0 auto;
   display: block;
-  width: 100%;
 }    
+.mainbtns
+{
+  border-radius: 4px;
+  color: rgb(32, 32, 32);
+  margin: left;
+  width: 75%;
+  display:block;
+  cursor: pointer;
+  text-align: justify;
+  padding-right: 25%;
+}
+.tacbtns
+{
+  border-radius: 4px;
+  color: rgb(32, 32, 32);
+  margin: 0 auto;
+  width: 100%;
+  display:block;
+  background:url(./ui/tac_closed.png) no-repeat;
+  cursor: pointer;
+  text-align: justify;
+}
+.nmapbtn
+{
+  border-radius: 4px;
+  display:inline-block;
+  background:url(./ui/nmap.png) no-repeat;
+  cursor: pointer;
+}
 .resulttable
 {
   border: 1px black solid;
@@ -29,8 +93,17 @@ html,body
 }
 .nmapres
 {
-    display: none;
-    width: auto;
+  display: none;
+  width: 100%;
+  overflow-x: scroll;
+}
+.ov_logo
+{
+  width: 12px;
+  height: 12px;
+  background-color: silver;
+  border: 1px solid silver;
+  float:left;
 }
 /* The Modal (background) */
 .modal {
@@ -78,3 +151,62 @@ html,body
   width: 75%;
   margin: 0 auto;
 }
+.userinput
+{
+  margin: left;
+  width: 75%;
+}
+.flags
+{
+  display: none;
+}
+
+table {
+  border: 1px solid lightgray;
+}
+table th {
+  background-color: silver;
+  text-align: center;
+  padding: 5vh;
+}
+table td {
+  width: 50vh;
+  border: 2 px solid rgb(175, 175, 175);
+  word-break: break-all;
+}
+
+/* WEBKIT */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #b0b0b0;
+  border: 0px none #ffffff;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d8d8d8;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #4a4a4a;
+}
+::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
