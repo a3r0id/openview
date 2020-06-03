@@ -27,6 +27,9 @@
 - Adding more features soon!
 
 ### V1.1 Images:
+
+*video*
+![](https://www.youtube.com/embed/bbp3e5V5fzY)
 *closed - main*
 ![](https://cdn.discordapp.com/attachments/635539301790384171/717634580252983436/1.png)
 ----
