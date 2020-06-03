@@ -27,4 +27,12 @@
 - **NMAP**: Just click the "NMAP" button to run a quick NMAP scan. Scans common ports and returns port-service plus rdns records and latency.
 - Adding more features soon!
 
+### V1.1 Images:
+![](https://cdn.discordapp.com/attachments/635539301790384171/717634580252983436/1.png)
+![](https://cdn.discordapp.com/attachments/635539301790384171/717634582744399882/2.png)
+![](https://cdn.discordapp.com/attachments/635539301790384171/717634584002428938/3.png)
+![](https://cdn.discordapp.com/attachments/635539301790384171/717634586238124112/4.png)
+![](https://cdn.discordapp.com/attachments/635539301790384171/717634588033286174/5.png)
+
+# V1.0 Images:
 ![](https://cdn.discordapp.com/attachments/635539301790384171/716817305811550248/asdfasadgfhfasf.png)
