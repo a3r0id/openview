@@ -1,31 +1,87 @@
 <!doctype html>
 <html lang="en">
+
   <head>
+    <script src="vendor/three.js"></script>
     <script src="vendor/jquery.min.js"></script>
     <link href="style.css" rel="stylesheet" />
     <title id="doctitle">OpenView</title>
   </head>
   <body>
 
+    <header class="infoheader">
+      <div><img class="ov_logo" src="ui/ov_black_profile.png" alt="OpenView Logo (Black)"></div><p class="infoheaderp">OpenView v1.1</p>
+    </header>
+
     <img id="loading" class="loadinggif" src="ui/loading.gif">
     
     <div class="resultwindow" id="resultwindow">
 
       <h1>OpenView</h1>
-      <button class="mainbtns" id="myBtn">Info</button>
 
+      <button class="tacbtns" id="myBtn">General Info
+        <img src="/ui/tac_closed.png" width="30" height="15" alt="nmap" id="infotac"/>
+      </button>
+
+      <button class="tacbtns" id="toggleinfo">Current Window
+        <img src="/ui/tac_closed.png" width="30" height="15" alt="nmap" id="toggleinfotac" />
+      </button>
+
+      <button class="tacbtns" id="return">Return
+        <img src="/ui/tac_return.png" width="30" height="15" alt="nmap" id="returnoverlay" />
+      </button>
+
+      <img id="mainflag" class="flags">
       <h2 id="maintitle" class="maintitle"></h2>
 
-      <button class="mainbtns" id="portscanbtn">NMAP</button>
-
-      <button class="mainbtns" id="return">Return</button>
+      <button class="mainbtns" id="portscanbtn">
+        NMAP
+        <img src="/ui/nmap.png" width="30" height="15" alt="nmap" id="nmaptac" />
+      </button>
 
       <table id="resulttable" class="resulttable"></table>
 
+      <button class="tacbtns" id="customsearchtoggle">Custom Search
+        <img src="/ui/tac_closed.png" width="30" height="15" alt="nmap" id="togglesearchtac" />
+      </button>
+
       <textarea rows="20" cols="75" class="nmapres" id="nmapres"></textarea>
 
-      <p id="resultwindowtitle"></p>
+      <input type="text" class="userinput" id="userinput" value="example.com">
+
+      <img id="customflag" class="flags">
+      <h2 id="customsearchtitle">Page Info:</h2>
+
+      <button class="mainbtns" id="portscanbtn1">
+        NMAP
+        <img src="/ui/nmap.png" width="30" height="15" alt="nmap" id="customnmaptac" />
+      </button>
+
+      <button class="mainbtns" id="customsearchbtn">
+        Geo-IP
+        <img src="/ui/mag_btn.png" width="30" height="15" alt="nmap" id="nmaptac" />
+      </button>
+
+      <table class="resulttable" id="customsearchtable"></table>
+
+      <button class="tacbtns" id="settingstoggle">UI Settings
+        <img src="/ui/tac_closed.png" width="30" height="15" alt="nmap" id="settingstac" />
+      </button>
+
+      <div id="settingsmenu">
+        Background Color
+        <input type="color" id="bgcolorpicker" value="#fefefe">
+        Foreground Color
+        <input type="color" id="fgcolorpicker" value="silver">
+        Text Color
+        <input type="color" id="textcolorpicker" value="black">
+        Toggle UI Sound
+        <input type="checkbox" id="audiotoggle">
+      </div>
+
+      <!--LOADING TEXT-->
       <p id="apitext"></p>
+
     </div>
     
     <!-- The Modal -->
@@ -35,16 +91,19 @@
       <div class="modal-content">
         <span class="close">&times;</span>
 
-        <h3>OpenView Toolkit</h3>
+        <h3>OpenView Toolkit v1.1</h3>
         <p>
           Thanks for choosing OpenView for your geo-ip information needs!
         <br><br>
         I look forward to keeping this open-source and updated.
         <h3>Usage:</h3>
-        <b>Geo-IP</b>: Simply click the our Extension's icon in your browser to view insights about your current window and the server thats hosting it.
+        <b>Geo-IP</b>: Simply click our Extension's icon in your browser to view insights about your current remote host.
+        <br>To do a custom search, head over to the <i>search</i> module and enter a host then hit the <i>Geo-IP</i> button.
         <br><br>
-        <b>NMAP</b>: Just click the "NMAP" button to run a quick NMAP scan. Scans common ports and returns port-service plus rdns records and latency. 
-        <br>
+        <b>NMAP</b>: Just click the <i>NMAP</i> button to run a quick NMAP scan on your current remote host.
+        <br>To do a custom scan, head over to the <i>search</i> module and enter enter a hostname or IP in the input box then select the <i>NMAP</i> button.
+        <br>Scans common ports and returns port-service plus rdns records and latency.* 
+        <br>[*] - NMAP is limited, the API allows 25 free scans per-day.
         <h3>API Credits:</h3>
         <b>Geo-IP: </b><a href="https://geoiplookup.io"><u>geoiplookup.io</u></a>.
         <br>
@@ -52,6 +111,11 @@
       </p>
     </div>
     </div>
+
+    <footer class="infofooter">
+      <p id="infofooterp" class="infofooterp">OpenView v1.1</p>
+    </footer>
+
   </body>
 <script src="scripts.js"></script>
 </html>
