@@ -40,6 +40,7 @@
 ![](https://cdn.discordapp.com/attachments/635539301790384171/717634586238124112/4.png)
 ----
 *UI settings 2*
+----
 ![](https://cdn.discordapp.com/attachments/635539301790384171/717634588033286174/5.png)
 
 # V1.0 Images:
