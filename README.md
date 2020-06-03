@@ -4,9 +4,9 @@
 
 
 ### V1.1 Release Notes:
-- Added Custom Search + Custom NMAP!
+- Added custom Search + custom NMAP!
 - Added UI Audio.
-- Added UI custom UI settings(savable).
+- Added custom UI settings(savable).
 
 ### Other Notes:
 - Incorporating Three.js MouseFollower soon. Doesn't function yet :/
