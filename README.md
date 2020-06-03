@@ -1,10 +1,20 @@
 # openview-chrome-extension
 - A Geo-IP extension for Chrome Browser.
-- Beta Version, 1.0.0.1 (development).
+- Beta Version, [0.] 1.1.0.0 (development).
 
-### Notes:
+
+### V1.1 Release Notes:
+- Added Custom Search + Custom NMAP!
+- Added UI Audio.
+- Added UI custom UI settings(savable).
+
+### Other Notes:
+- Incorporating Three.js MouseFollower soon. Doesn't function yet :/
 - JQuery Version: 3.5.1.
 - NMAP API has a usage limit of 25 daily.
+
+### Known Bugs:
+- Audio toggle preferance [UI Settings] saves in `LocalStorage` but doesn't update during load.
 
 ### How To Install (For Development):
 - Open Chrome Browser and head to `chrome://extensions`.
