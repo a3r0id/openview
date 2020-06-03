@@ -29,12 +29,16 @@
 ### V1.1 Images:
 *closed - main*
 ![](https://cdn.discordapp.com/attachments/635539301790384171/717634580252983436/1.png)
+----
 *current window*
 ![](https://cdn.discordapp.com/attachments/635539301790384171/717634582744399882/2.png)
+----
 *custom search*
 ![](https://cdn.discordapp.com/attachments/635539301790384171/717634584002428938/3.png)
+----
 *UI settings 1*
 ![](https://cdn.discordapp.com/attachments/635539301790384171/717634586238124112/4.png)
+----
 *UI settings 2*
 ![](https://cdn.discordapp.com/attachments/635539301790384171/717634588033286174/5.png)
 
