@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@175&display=swap');
+/* font-family: 'Public Sans', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap');
+/* font-family: 'Play', sans-serif; */
 html
 {
   width: 440px;
@@ -248,14 +251,16 @@ table td {
   {
     background-position: 100% 50%;
     box-shadow: 0px 2px #777777;
-	}
+  }
+  
 }
 
 .maintitleani
 {
+  font-family: 'Play', sans-serif;
   box-shadow: 1px 1px;
   border: 1px silver solid;
-  background: linear-gradient(-45deg,rgb(23, 23, 44),rgb(100, 100, 100),rgb(16, 34, 53));
+  background: url('ui/ov.png'), linear-gradient(-45deg,rgb(23, 23, 44),rgb(100, 100, 100),rgb(16, 34, 53));
   background-size: 400% 400%;
   text-justify: left;
   width: 28%;
