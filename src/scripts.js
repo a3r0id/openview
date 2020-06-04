@@ -1,12 +1,16 @@
 /*
 > twitter.com/hostinfonet
-> support@host-info.net
-> Head to host-info.net and leave a message via tawk.to!
+
+> support@host-info.net OR head to host-info.net and leave a message via tawk.to!
+
+
 
 Priority-Level: Minor, Moderate, Critical
+
 BUGS:
-> [Moderate][Lines 86/91], audio toggle does not update based on LocalStorage.
+> [Moderate], audio toggle does not update based on LocalStorage.
 */
+
 
 var thisHostname;
 let defaultContext = "Welcome To OpenView!";
@@ -50,6 +54,8 @@ var fgcolorpicker = document.getElementById('fgcolorpicker');
 var textcolorpicker = document.getElementById('textcolorpicker');
 
 var footerContext = document.getElementById('infofooterp');
+
+var maintitleani = document.getElementById("maintitleani");
 
 // ONLOAD - UI
 footerContext.innerHTML = "Loading...";
@@ -110,23 +116,43 @@ else
   fgcolorpicker.value = localStorage.facecolor;
 }
 
+
+
+// ONLOAD - BACKEND
+// Regex-pattern to check URLs against. 
+// It matches URLs like: http[s]://[...]stackoverflow.com[...]
+
+// A function to use as callback
+function doStuffWithDom(domContent) {
+    alert('I received the following DOM content:\n' + domContent);
+}
+
+// When the browser-action button is clicked...
+chrome.runtime.onMessage.addListener(function (tab)
+{
+  chrome.tabs.sendMessage(tab.id, {text: 'report_back'}, doStuffWithDom);  
+});
+
+
+
+
 btn.onclick = function() {
   if (audioToggle.checked == true)
-  {tacbtnaudio.play();}
+  {tacbtnaudio.load();tacbtnaudio.play();}
   modal.style.display = "block";
   modal.focus();
 }
 
 span.onclick = function() {
   if (audioToggle.checked == true)
-  {fmsynth.play();}
+  {fmsynth.load();fmsynth.play();}
   modal.style.display = "none";
 }
 
 window.onclick = function(event) {
   if (event.target == modal) {
     if (audioToggle.checked == true)
-    {fmsynth.play();}
+    {fmsynth.load();fmsynth.play();}
     modal.style.display = "none";
   }
 }
@@ -141,6 +167,7 @@ function dressKeys(key)
   return str.join(" ");
 }
 
+/*
 function onMouseMove(event) {
 
   // Update the mouse variable
@@ -157,7 +184,7 @@ function onMouseMove(event) {
   var distance = - camera.position.z / dir.z;
   var pos = camera.position.clone().add( dir.multiplyScalar( distance ) );
 };
-
+*/
 chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
   var thisUrl = tabs[0].url;
   var thisProto = thisUrl.split("://")[0];
@@ -235,13 +262,13 @@ chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
 document.getElementsByClassName("tacbtns").onmouseover = function()
 {
   if (audioToggle.checked == true)
-  {tacbtnaudio.play();}
+  {tacbtnaudio.load();tacbtnaudio.play();}
 };
 
 nmapBtn.onclick = function()
 {
   if (audioToggle.checked == true)
-  {tacbtnaudio.play();}
+  {tacbtnaudio.load();tacbtnaudio.play();}
   toggleInfoBtn.style.display = "none";
   customsearchtoggle.style.display = "none";
   btn.style.display = "none";
@@ -265,7 +292,7 @@ nmapBtn.onclick = function()
       nmapRes.style.display = "block";
       nmapRes.innerHTML = this.responseText;
       if (audioToggle.checked == true)
-      {successsynth.play();}
+      {successsynth.load();successsynth.play();}
     }
   }
   xmlhttp.open("GET", nmapUrl, true);
@@ -275,7 +302,7 @@ nmapBtn.onclick = function()
 returnMain.onclick = function()
 {
   if (audioToggle.checked == true)
-  {fmsynth.play();}
+  {fmsynth.load();fmsynth.play();}
   customflag.style.display = "none";
   mainflag.style.display = "none";
   returnMain.style.display = "none";
@@ -297,14 +324,14 @@ returnMain.onclick = function()
 customsearchtoggle.onclick = function()
 {
   if (audioToggle.checked == true)
-  {tacbtnaudio.play();}
+  {tacbtnaudio.load();tacbtnaudio.play();}
   if (nmapBtn1.style.display == "none")
   {
     togglesearchtac.src = "/ui/tac_open.png";
     userInput.style.display = "block";
     customsearchsubmit.style.display = "block";
     nmapBtn1.style.display = "block";
-    customsearchtable.style.display = "block";
+    //customsearchtable.style.display = "block";
     //customsearchtitle.style.display = "block";
   }
   else
@@ -322,7 +349,7 @@ customsearchtoggle.onclick = function()
 toggleInfoBtn.onclick = function()
 {
   if (audioToggle.checked == true)
-  {tacbtnaudio.play();}
+  {tacbtnaudio.load();tacbtnaudio.play();}
   if (table.style.display == "none")
   {
     toggleinfotac.src = "/ui/tac_open.png";
@@ -345,11 +372,11 @@ toggleInfoBtn.onclick = function()
 customsearchsubmit.onclick = function()
 {
   if (audioToggle.checked == true)
-  {tacbtnaudio.play();}
+  {tacbtnaudio.load();tacbtnaudio.play();}
   if (userInput.value == "")
   {
     if (audioToggle.checked == true)
-    {errorsynth.play();}
+    {errorsynth.load();errorsynth.play();}
     alert("Geo-IP API: No Input!")
     return;
   }
@@ -430,7 +457,7 @@ customsearchsubmit.onclick = function()
       nmapBtn1.style.display = "block"; 
       customflag.style.display = "block";
       if (audioToggle.checked == true)
-      {successsynth.play();} 
+      {successsynth.load();successsynth.play();} 
     }
   };
   xmlhttp1.open("GET", apiUrl, true);
@@ -440,11 +467,11 @@ customsearchsubmit.onclick = function()
 nmapBtn1.onclick = function()
 {
   if (audioToggle.checked == true)
-  {tacbtnaudio.play();}
+  {tacbtnaudio.load();tacbtnaudio.play();}
   if (userInput.value == "")
   {
     if (audioToggle.checked == true)
-    {errorsynth.play();}
+    {errorsynth.load();errorsynth.play();}
     alert("NMAP API: No Input!")
     return;
   }
@@ -475,7 +502,7 @@ nmapBtn1.onclick = function()
       nmapRes.style.display = "block";
       nmapRes.innerHTML = this.responseText;
       if (audioToggle.checked == true)
-      {successsynth.play();}
+      {successsynth.load();successsynth.play();}
     }
   }
   xmlhttp.open("GET", nmapUrl, true);
@@ -485,7 +512,7 @@ nmapBtn1.onclick = function()
 settingstoggle.onclick = function()
 {
   if (audioToggle.checked == true)
-  {tacbtnaudio.play();}
+  {tacbtnaudio.load();tacbtnaudio.play();}
   if (settingsMenu.style.display == "none")
   {
     settingsMenuTac.src = "/ui/tac_open.png";
