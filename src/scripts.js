@@ -24,6 +24,7 @@ var nmapRes = document.getElementById('nmapres');
 var returnMain = document.getElementById('return');
 var apiContext = document.getElementById('apitext');
 var modal = document.getElementById("myModal");
+var modalContent = document.getElementById("modal-content");
 var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
 var customsearchtable = document.getElementById("customsearchtable");
@@ -57,6 +58,9 @@ var footerContext = document.getElementById('infofooterp');
 
 var maintitleani = document.getElementById("maintitleani");
 
+var alltacbtns = document.getElementsByClassName('tacbtns');
+
+
 // ONLOAD - UI
 footerContext.innerHTML = "Loading...";
 settingsMenu.style.display = "none";
@@ -80,11 +84,17 @@ if (localStorage.textcolor == undefined)
 {
   textcolorpicker.value = "black";
   document.body.style.color = "black";
+  for (var i = 0; i < alltacbtns.length; i++) {
+    alltacbtns[i].style.color = 'black';
+  }
 }
 else
 {
   textcolorpicker.value = localStorage.textcolor;
   document.body.style.color = localStorage.textcolor;
+  for (var i = 0; i < alltacbtns.length; i++) {
+    alltacbtns[i].style.color = localStorage.textcolor;
+  }
 }
 if (localStorage.audio == undefined)
 {
@@ -109,11 +119,13 @@ if (localStorage.facecolor == undefined)
 {
   resultWindow.style.background = "silver";
   fgcolorpicker.value = "silver";
+  modalContent.style.background = "#fefefe";
 }
 else
 {
   resultWindow.style.background = localStorage.facecolor;
   fgcolorpicker.value = localStorage.facecolor;
+  modalContent.style.background = localStorage.facecolor;
 }
 
 
@@ -279,6 +291,7 @@ nmapBtn.onclick = function()
   loading.style.display = "block";
   returnMain.style.display = "block";
   apiContext.style.display = "block";
+  mainflag.style.display = "none";
 
   let xmlhttp = new XMLHttpRequest();
   let htri = atob('aHR0cHM6Ly9hcGkuaGFja2VydGFyZ2V0LmNvbS9ubWFwLz9xPQ==');
@@ -303,19 +316,36 @@ returnMain.onclick = function()
 {
   if (audioToggle.checked == true)
   {fmsynth.load();fmsynth.play();}
+
   customflag.style.display = "none";
   mainflag.style.display = "none";
   returnMain.style.display = "none";
   nmapRes.style.display = "none";
   loading.style.display = "none";
   modal.style.display = "none";
-  table.style.display = "block"; 
-  mainTitle.style.display = "block";
+  table.style.display = "none"; 
+  mainTitle.style.display = "none";
+  
+
+  // CLOSE UP MODULES AFTER CUSTOM NMAP TO AVOID CLUTTER
+
+
+  if (customsearchtitle.style.display == "block")
+  {
+    togglesearchtac.src = "/ui/tac_open.png";
+  }
+  else
+  {
+    togglesearchtac.src = "/ui/tac_closed.png";
+  }
+  
+  toggleinfotac.src = "/ui/tac_closed.png";
+  
+  nmapBtn.style.display = "none";
+  nmapBtn1.style.display = "none";
+
   resultWindow.style.display = "block";
   btn.style.display = "block";
-  customsearchtoggle.display = "block";
-  nmapBtn.style.display = "none";
-  nmapBtn.style.display = "none";
   customsearchtoggle.style.display = "block";
   btn.style.display = "block";
   toggleInfoBtn.style.display = "block";
@@ -336,6 +366,12 @@ customsearchtoggle.onclick = function()
   }
   else
   {
+    if (customsearchtitle.style.display == "block")
+    {
+      customsearchtitle.style.display == "none";
+      customsearchtable.style.display == "none";
+    }
+
     togglesearchtac.src = "/ui/tac_closed.png";
     userInput.style.display = "none";
     customsearchtitle.style.display = "none";
@@ -475,6 +511,7 @@ nmapBtn1.onclick = function()
     alert("NMAP API: No Input!")
     return;
   }
+  mainflag.style.display = "none";
   toggleInfoBtn.style.display = "none";
   customsearchtoggle.style.display = "none";
   customsearchsubmit.style.display = "none";
@@ -529,18 +566,24 @@ bgcolorpicker.oninput = function()
 {
   localStorage.bgcolor = bgcolorpicker.value;
   document.body.style.background = localStorage.bgcolor;
+  
 }
 
 fgcolorpicker.oninput = function()
 {
   localStorage.facecolor = fgcolorpicker.value;
   resultWindow.style.background = localStorage.facecolor;
+  modalContent.style.background = localStorage.facecolor;
 }
 
 textcolorpicker.oninput = function()
 {
   localStorage.textcolor = textcolorpicker.value;
   document.body.style.color = localStorage.textcolor;
+  for (var i = 0; i < alltacbtns.length; i++) {
+    alltacbtns[i].style.color = localStorage.textcolor;
+  }
+  
 }
 
 audioToggle.oninput = function()
