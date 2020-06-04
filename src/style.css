@@ -94,11 +94,12 @@ body
 .nmapres
 {
   display: none;
-  width: 100%;
+  width: 98%;
   overflow-x: scroll;
 }
 .ov_logo
 {
+  padding-left: 1%;
   width: 12px;
   height: 12px;
   background-color: silver;
@@ -154,7 +155,7 @@ body
 .userinput
 {
   margin: left;
-  width: 75%;
+  width: 73%;
 }
 .flags
 {
@@ -208,5 +209,59 @@ table td {
 }
 ::-webkit-scrollbar-corner {
   background: transparent;
+}
+
+/* End Webkit */
+
+
+/* Animations */
+
+
+/* The animation code */
+@keyframes titleanimation {
+  0%
+  {
+    background-position: 0% 50%;
+    box-shadow: 2px 0px #888888;
+	}
+  35%
+  {
+    background-position: 100% 50%;
+    box-shadow: 0px 2px #797979;
+	}
+  60%
+  {
+    background-position: 150% 100%;
+    box-shadow: 2px 0px #6e6e6e;
+  }
+  85%
+  {
+    background-position: 100% 50%;
+    box-shadow: 0px 2px #5f5f5f;
+  }
+  95%
+  {
+    background-position: 0% 50%;
+    box-shadow: 2px 0px #646464;
+	}
+  100%
+  {
+    background-position: 100% 50%;
+    box-shadow: 0px 2px #777777;
+	}
+}
+
+.maintitleani
+{
+  box-shadow: 1px 1px;
+  border: 1px silver solid;
+  background: linear-gradient(-45deg,rgb(23, 23, 44),rgb(100, 100, 100),rgb(16, 34, 53));
+  background-size: 400% 400%;
+  text-justify: left;
+  width: 28%;
+  animation-name: titleanimation;
+  animation-direction: reverse;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
 }
 
