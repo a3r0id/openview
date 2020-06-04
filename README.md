@@ -26,8 +26,13 @@
 - **NMAP**: Just click the "NMAP" button to run a quick NMAP scan. Scans common ports and returns port-service plus rdns records and latency.
 - Adding more features soon!
 
+### V1.1.0.3 Patch:
+*New logo + fixed logical issues with UI elements. Tac buttons not closing etc. Also able to change tac button text-color plus help-modal color as well.*
+![](https://cdn.discordapp.com/attachments/706733322709237800/718008102296879114/7.png)
+----
+
 ### V1.1.0.2 Patch:
-*closed - main - CSS Fixes/Updates + faster audio response*
+*CSS Fixes/Updates + faster audio response*
 ![](https://cdn.discordapp.com/attachments/706733322709237800/717958099692159096/6.png)
 ----
 
