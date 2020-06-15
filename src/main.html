@@ -13,7 +13,7 @@
       <div><img class="ov_logo" src="ui/ov_black_profile.png" alt="OpenView Logo (Black)"></div><p class="infoheaderp">OpenView v1.1</p>
     </header>
 
-    <img id="loading" class="loadinggif" src="ui/loading.gif">
+    <img class="loader" id="loading" class="loadinggif" src="ui/loading.gif">
     
     <div class="resultwindow" id="resultwindow">
 
@@ -41,6 +41,22 @@
 
       <table id="resulttable" class="resulttable"></table>
 
+
+      <!--MAIN GMAP-->
+    <div id="gmap_main">
+      <div class="mapouter">
+        <div class="gmap_canvas">
+
+        <iframe width="100%" height="500" id="gmap_canvas"
+        src="about:blank"
+        frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+      </iframe>
+
+    </div>
+      </div>
+        </div>
+
+
       <button class="tacbtns" id="customsearchtoggle">Custom Search
         <img src="/ui/tac_closed.png" width="30" height="15" alt="nmap" id="togglesearchtac" />
       </button>
@@ -63,6 +79,21 @@
       </button>
 
       <table class="resulttable" id="customsearchtable"></table>
+
+
+      <!--CUSTOM GMAP-->
+      <div id="gmap_custom">
+        <div class="mapouter">
+          <div class="gmap_canvas">
+  
+          <iframe width="100%" height="500" id="gmap_canvas1"
+          src="about:blank"
+          frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+        </iframe>
+  
+      </div>
+        </div>
+          </div>
 
       <button class="tacbtns" id="settingstoggle">UI Settings
         <img src="/ui/tac_closed.png" width="30" height="15" alt="nmap" id="settingstac" />
