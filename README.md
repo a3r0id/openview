@@ -2,6 +2,10 @@
 - A Geo-IP extension for Chrome Browser.
 - Beta Version, [0.] 1.2.0.0 (development).
 
+### V1.2 Release Notes:
+- Added Google Maps Plugin
+- New button enumeration/faster UI.
+
 ### V1.1 Release Notes:
 - Added custom Search + custom NMAP!
 - Added UI Audio.
