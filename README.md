@@ -1,6 +1,6 @@
 # openview-chrome-extension
 - A Geo-IP extension for Chrome Browser.
-- Beta Version, [0.] 1.1.0.0 (development).
+- Beta Version, [0.] 1.2.0.0 (development).
 
 ### V1.1 Release Notes:
 - Added custom Search + custom NMAP!
@@ -25,6 +25,15 @@
 - **Geo-IP**: Simply click our Extension's icon in your browser to view insights about your current window and the server thats hosting it.
 - **NMAP**: Just click the "NMAP" button to run a quick NMAP scan. Scans common ports and returns port-service plus rdns records and latency.
 - Adding more features soon!
+----
+### V1.2 Update:
+*FIXED all UI Issues, Added google maps plugin <3 Seems to be working great,
+please let me know if otherwise!*
+----
+![](https://cdn.discordapp.com/attachments/718168880106963027/722171968169705574/Untitled.png)
+----
+![](https://cdn.discordapp.com/attachments/718168880106963027/722171970782756945/Untit1led.png)
+----
 
 ### V1.1.0.3 Patch:
 *New logo + fixed logical issues with UI elements. Tac buttons not closing etc. Also able to change tac button text-color plus help-modal color as well.*
