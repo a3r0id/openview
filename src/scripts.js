@@ -1,67 +1,93 @@
 /*
 > twitter.com/hostinfonet
 
-> support@host-info.net OR head to host-info.net and leave a message via tawk.to!
 
-
-
-Priority-Level: Minor, Moderate, Critical
+_BUG SQUASHING_
+Priority-Levels: Minor, Moderate, Critical
 
 BUGS:
-> [Moderate], audio toggle does not update based on LocalStorage.
+> NONE :)
 */
 
 
 var thisHostname;
-let defaultContext = "Welcome To OpenView!";
-var table = document.getElementById('resulttable');
-var resultWindow = document.getElementById('resultwindow');
-var mainTitle = document.getElementById('maintitle');
-var loading = document.getElementById('loading');
-var nmapBtn = document.getElementById('portscanbtn');
-var nmapBtn1 = document.getElementById('portscanbtn1');
-var nmapRes = document.getElementById('nmapres');
-var returnMain = document.getElementById('return');
-var apiContext = document.getElementById('apitext');
-var modal = document.getElementById("myModal");
-var modalContent = document.getElementById("modal-content");
-var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
-var customsearchtable = document.getElementById("customsearchtable");
-var customsearchtoggle = document.getElementById("customsearchtoggle");
-var customsearchtitle = document.getElementById("customsearchtitle");
-var customsearchsubmit = document.getElementById("customsearchbtn");
-var toggleInfoBtn = document.getElementById("toggleinfo");
-var userInput = document.getElementById("userinput");
-var togglesearchtac = document.getElementById("togglesearchtac");
-var toggleinfotac = document.getElementById("toggleinfotac");
-var settingstoggle = document.getElementById("settingstoggle");
+const defaultContext = "Welcome To OpenView!";
+const table = document.getElementById('resulttable');
+const resultWindow = document.getElementById('resultwindow');
+const mainTitle = document.getElementById('maintitle');
+const loading = document.getElementById('loading');
+const nmapBtn = document.getElementById('portscanbtn');
+const nmapBtn1 = document.getElementById('portscanbtn1');
+const nmapRes = document.getElementById('nmapres');
+const returnMain = document.getElementById('return');
+const apiContext = document.getElementById('apitext');
+const modal = document.getElementById("myModal");
+const modalContent = document.getElementById("modal-content");
+const btn = document.getElementById("myBtn");
+const span = document.getElementsByClassName("close")[0];
+const customsearchtable = document.getElementById("customsearchtable");
+const customsearchtoggle = document.getElementById("customsearchtoggle");
+const customsearchtitle = document.getElementById("customsearchtitle");
+const customsearchsubmit = document.getElementById("customsearchbtn");
+const toggleInfoBtn = document.getElementById("toggleinfo");
+const userInput = document.getElementById("userinput");
+const togglesearchtac = document.getElementById("togglesearchtac");
+const toggleinfotac = document.getElementById("toggleinfotac");
+const settingstoggle = document.getElementById("settingstoggle");
 
-var tacbtnaudio = new Audio('ui/tacbtn.mp3');
-var fmsynth = new Audio('ui/fm_synth.mp3');
-var errorsynth = new Audio('ui/error.mp3');
-var successsynth = new Audio('ui/success.mp3');
+const tacbtnaudio = new Audio('ui/tacbtn.mp3');
+const fmsynth = new Audio('ui/fm_synth.mp3');
+const errorsynth = new Audio('ui/error.mp3');
+const successsynth = new Audio('ui/success.mp3');
 
-var audioToggle = document.getElementById('audiotoggle');
+const audioToggle = document.getElementById('audiotoggle');
 
-var mainflag = document.getElementById('mainflag');
-var customflag = document.getElementById('customflag');
+const mainflag = document.getElementById('mainflag');
+const customflag = document.getElementById('customflag');
 
-var settingsMenu = document.getElementById('settingsmenu');
-var settingsMenuTac = document.getElementById('settingstac');
+const settingsMenu = document.getElementById('settingsmenu');
+const settingsMenuTac = document.getElementById('settingstac');
 
-var bgcolorpicker = document.getElementById('bgcolorpicker');
-var fgcolorpicker = document.getElementById('fgcolorpicker');
-var textcolorpicker = document.getElementById('textcolorpicker');
+const bgcolorpicker = document.getElementById('bgcolorpicker');
+const fgcolorpicker = document.getElementById('fgcolorpicker');
+const textcolorpicker = document.getElementById('textcolorpicker');
 
-var footerContext = document.getElementById('infofooterp');
+const footerContext = document.getElementById('infofooterp');
 
-var maintitleani = document.getElementById("maintitleani");
+const maintitleani = document.getElementById("maintitleani");
 
-var alltacbtns = document.getElementsByClassName('tacbtns');
+const alltacbtns = document.getElementsByClassName('tacbtns');
+
+
+const gmapMain = document.getElementById('gmap_main');
+const gmapMainFrame = document.getElementById('gmap_canvas');
+const gmapCustom = document.getElementById('gmap_custom');
+const gmapCustomFrame = document.getElementById('gmap_canvas1');
+
+const gmapCanvasMacro = document.getElementsByClassName('gmap_canvas');
+
+const gmapCanvasMacroOuter = document.getElementsByClassName('mapouter');
 
 
 // ONLOAD - UI
+for (var i = 0; i < alltacbtns.length; i++) {
+  alltacbtns[i].style.display = "none";
+}
+resultWindow.style.display = "block";
+loading.style.display = "block";
+
+gmapMain.style.display = "none";
+gmapCustom.style.display = "none";
+//gmapMainFrame.src = "#";
+//gmapCustomFrame.src = "#";
+gmapCustomFrame.style.display = "none";
+gmapMainFrame.style.display = "none";
+
+maintitleani.style.display = "none";
+mainTitle.style.display = "none";
+
+
+
 footerContext.innerHTML = "Loading...";
 settingsMenu.style.display = "none";
 customflag.style.display = "none";
@@ -77,7 +103,8 @@ modal.style.display = "none";
 table.style.display = "none";
 returnMain.style.display = "none";
 apiContext.innerHTML = "Connecting To API...";
-btn.style.display = "block";
+
+
 
 // ONLOAD - STORAGE
 if (localStorage.textcolor == undefined)
@@ -129,25 +156,6 @@ else
 }
 
 
-
-// ONLOAD - BACKEND
-// Regex-pattern to check URLs against. 
-// It matches URLs like: http[s]://[...]stackoverflow.com[...]
-
-// A function to use as callback
-function doStuffWithDom(domContent) {
-    alert('I received the following DOM content:\n' + domContent);
-}
-
-// When the browser-action button is clicked...
-chrome.runtime.onMessage.addListener(function (tab)
-{
-  chrome.tabs.sendMessage(tab.id, {text: 'report_back'}, doStuffWithDom);  
-});
-
-
-
-
 btn.onclick = function() {
   if (audioToggle.checked == true)
   {tacbtnaudio.load();tacbtnaudio.play();}
@@ -179,27 +187,10 @@ function dressKeys(key)
   return str.join(" ");
 }
 
-/*
-function onMouseMove(event) {
-
-  // Update the mouse variable
-  event.preventDefault();
-  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-  mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
-
-  // Make the sphere follow the mouse
-  mouseMesh.position.set(event.clientX, event.clientY, 0);
-
-  var vector = new THREE.Vector3(mouse.x, mouse.y, 0.5);
-  vector.unproject( camera );
-  var dir = vector.sub( camera.position ).normalize();
-  var distance = - camera.position.z / dir.z;
-  var pos = camera.position.clone().add( dir.multiplyScalar( distance ) );
-};
-*/
+// PERSISTANT SCRIPT ENTRY POINT - Everytime you open app
 chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
-  var thisUrl = tabs[0].url;
-  var thisProto = thisUrl.split("://")[0];
+  let thisUrl = tabs[0].url;
+  let thisProto = thisUrl.split("://")[0];
   thisHostname = thisUrl.split("://")[1];
   if (thisHostname.includes("www.")) thisHostname = thisHostname.split("www.")[1];
   if (thisHostname.includes("/")) thisHostname = thisHostname.split("/")[0];
@@ -207,15 +198,14 @@ chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
   returnMain.style.display = "none";
   nmapRes.style.display = "none";
   table.style.display = "none";
-  resultWindow.style.display = "none";
+  resultWindow.style.display = "block";
   mainTitle.style.display = "none";
   apiContext.style.display = "block";
-  loading.style.display = "block";
   
   var apiUrl = atob('aHR0cHM6Ly9qc29uLmdlb2lwbG9va3VwLmlvLwo=');
   apiUrl += thisHostname;
   mainTitle.innerHTML = thisHostname;
-  var xmlhttp = new XMLHttpRequest();
+  let xmlhttp = new XMLHttpRequest();
   
   xmlhttp.onreadystatechange = function()
   {
@@ -234,9 +224,9 @@ chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
       {
           if (revObj.hasOwnProperty(key))
           {
-            var row = table.insertRow(0);
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
+            let row = table.insertRow(0);
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
             if (size < 3)
             {
               cell1.innerHTML = dressKeys(key) + ":";
@@ -256,15 +246,17 @@ chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
           $(this).append(arr);
       });
 
+      for (var i = 0; i < alltacbtns.length; i++) {
+        alltacbtns[i].style.display = "block";
+      }
+      returnMain.style.display = "none";
+      maintitleani.style.display = "block";
       apiContext.style.display = "none";
       loading.style.display = "none";
-      // Dont automatically show table
-      // table.style.display = "block";
       resultWindow.style.display = "block";
-      //mainTitle.style.display = "block"; 
-      //nmapBtn.style.display = "block";
       mainflag.src = `https://www.countryflags.io/${obj.country_code}/shiny/64.png`;
-      //mainflag.style.display = "block";
+      gmapMainFrame.src = `https://maps.google.com/maps?q=${obj.latitude},${obj.longitude}&t=&z=11&ie=UTF8&iwloc=&output=embed`;
+      gmapMain.style.display = "none";
     }
   };
   xmlhttp.open("GET", apiUrl, true);
@@ -281,6 +273,11 @@ nmapBtn.onclick = function()
 {
   if (audioToggle.checked == true)
   {tacbtnaudio.load();tacbtnaudio.play();}
+  for (var i = 0; i < alltacbtns.length; i++) {
+    alltacbtns[i].style.display = "none";
+  }
+  maintitleani.style.display = "none";
+  gmapMain.style.display = "none";
   toggleInfoBtn.style.display = "none";
   customsearchtoggle.style.display = "none";
   btn.style.display = "none";
@@ -289,17 +286,17 @@ nmapBtn.onclick = function()
   mainTitle.style.display = "none";
   table.style.display = "none";
   loading.style.display = "block";
-  returnMain.style.display = "block";
   apiContext.style.display = "block";
   mainflag.style.display = "none";
 
   let xmlhttp = new XMLHttpRequest();
-  let htri = atob('aHR0cHM6Ly9hcGkuaGFja2VydGFyZ2V0LmNvbS9ubWFwLz9xPQ==');
+  var htri = atob('aHR0cHM6Ly9hcGkuaGFja2VydGFyZ2V0LmNvbS9ubWFwLz9xPQ==');
   let nmapUrl = htri + thisHostname;
   xmlhttp.onreadystatechange = function()
   {
     if (this.readyState == 4 && this.status == 200)
     {
+      returnMain.style.display = "block";
       apiContext.style.display = "none";
       loading.style.display = "none";
       nmapRes.style.display = "block";
@@ -310,6 +307,7 @@ nmapBtn.onclick = function()
   }
   xmlhttp.open("GET", nmapUrl, true);
   xmlhttp.send();
+  
 };
 
 returnMain.onclick = function()
@@ -317,8 +315,13 @@ returnMain.onclick = function()
   if (audioToggle.checked == true)
   {fmsynth.load();fmsynth.play();}
 
+  gmapMain.style.display = "none";
+  gmapCustom.style.display = "none";
   customflag.style.display = "none";
   mainflag.style.display = "none";
+  for (var i = 0; i < alltacbtns.length; i++) {
+    alltacbtns[i].style.display = "block";
+  }
   returnMain.style.display = "none";
   nmapRes.style.display = "none";
   loading.style.display = "none";
@@ -351,6 +354,37 @@ returnMain.onclick = function()
   toggleInfoBtn.style.display = "block";
 }
 
+toggleInfoBtn.onclick = function()
+{
+  if (audioToggle.checked == true)
+  {tacbtnaudio.load();tacbtnaudio.play();}
+  if (table.style.display == "none")
+  {
+    toggleinfotac.src = "/ui/tac_open.png";
+    table.style.display = "block";
+    mainTitle.style.display = "block";
+    nmapBtn.style.display = "block";
+    mainflag.style.display = "block";
+    gmapMain.style.display = "block";
+    gmapMainFrame.style.display = "block";
+    gmapCanvasMacro[0].style.display = "block";
+    gmapCanvasMacroOuter[0].style.display = "block";
+  }
+  else
+  {
+    toggleinfotac.src = "/ui/tac_closed.png";
+    gmapMain.style.display = "none";
+    table.style.display = "none";
+    mainTitle.style.display = "none";
+    nmapBtn.style.display = "none";
+    mainflag.style.display = "none";
+    gmapMain.style.display = "none";
+    gmapMainFrame.style.display = "none";
+    gmapCanvasMacro[0].style.display = "none";
+    gmapCanvasMacroOuter[0].style.display = "none";
+  }
+}
+
 customsearchtoggle.onclick = function()
 {
   if (audioToggle.checked == true)
@@ -366,12 +400,9 @@ customsearchtoggle.onclick = function()
   }
   else
   {
-    if (customsearchtitle.style.display == "block")
-    {
-      customsearchtitle.style.display == "none";
-      customsearchtable.style.display == "none";
-    }
-
+    gmapCustom.style.display == "none";
+    gmapCustomFrame.src = "";
+    gmapCustomFrame.style.display = "none";
     togglesearchtac.src = "/ui/tac_closed.png";
     userInput.style.display = "none";
     customsearchtitle.style.display = "none";
@@ -379,29 +410,12 @@ customsearchtoggle.onclick = function()
     customsearchsubmit.style.display = "none";
     nmapBtn1.style.display = "none";
     customflag.style.display = "none";
-  }
-}
+    gmapCustomFrame.style.display = "none";
+    gmapCanvasMacro[1].style.display = "none";
+    gmapCanvasMacroOuter[1].style.display = "none";
 
-toggleInfoBtn.onclick = function()
-{
-  if (audioToggle.checked == true)
-  {tacbtnaudio.load();tacbtnaudio.play();}
-  if (table.style.display == "none")
-  {
-    toggleinfotac.src = "/ui/tac_open.png";
-    table.style.display = "block";
-    mainTitle.style.display = "block";
-    nmapBtn.style.display = "block";
-    mainflag.style.display = "block";
   }
-  else
-  {
-    toggleinfotac.src = "/ui/tac_closed.png";
-    table.style.display = "none";
-    mainTitle.style.display = "none";
-    nmapBtn.style.display = "none";
-    mainflag.style.display = "none";
-  }
+  
 }
 
 // CUSTOM SEARCH
@@ -461,9 +475,9 @@ customsearchsubmit.onclick = function()
       {
           if (obj.hasOwnProperty(key))
           {
-            var row = customsearchtable.insertRow(0);
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
+            let row = customsearchtable.insertRow(0);
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
             if (size < 3)
             {
               cell1.innerHTML = dressKeys(key) + ":";
@@ -483,7 +497,9 @@ customsearchsubmit.onclick = function()
         arr.reverse();
           $(this).append(arr);
       });
-
+      gmapCustomFrame.src = `https://maps.google.com/maps?q=${obj.latitude},${obj.longitude}&t=&z=11&ie=UTF8&iwloc=&output=embed`;
+      gmapCustomFrame.style.display = "block";
+      gmapCustom.style.display = "block";
       customflag.src = `https://www.countryflags.io/${obj.country_code}/shiny/64.png`;
       nmapBtn.style.display = "none";
       apiContext.style.display = "none";
@@ -492,6 +508,8 @@ customsearchsubmit.onclick = function()
       customsearchtitle.style.display = "block";
       nmapBtn1.style.display = "block"; 
       customflag.style.display = "block";
+      gmapCanvasMacro[1].style.display = "block";
+      gmapCanvasMacroOuter[1].style.display = "block";
       if (audioToggle.checked == true)
       {successsynth.load();successsynth.play();} 
     }
@@ -511,6 +529,10 @@ nmapBtn1.onclick = function()
     alert("NMAP API: No Input!")
     return;
   }
+  for (var i = 0; i < alltacbtns.length; i++) {
+    alltacbtns[i].style.display = "none";
+  }
+  maintitleani.style.display = "none";
   mainflag.style.display = "none";
   toggleInfoBtn.style.display = "none";
   customsearchtoggle.style.display = "none";
@@ -523,17 +545,17 @@ nmapBtn1.onclick = function()
   mainTitle.style.display = "none";
   table.style.display = "none";
   loading.style.display = "block";
-  returnMain.style.display = "block";
   apiContext.style.display = "block";
 
 
   let xmlhttp = new XMLHttpRequest();
-  let htri = atob('aHR0cHM6Ly9hcGkuaGFja2VydGFyZ2V0LmNvbS9ubWFwLz9xPQ==');
+  var htri = atob('aHR0cHM6Ly9hcGkuaGFja2VydGFyZ2V0LmNvbS9ubWFwLz9xPQ==');
   let nmapUrl = htri + userInput.value;
   xmlhttp.onreadystatechange = function()
   {
     if (this.readyState == 4 && this.status == 200)
     {
+      returnMain.style.display = "block";
       apiContext.style.display = "none";
       loading.style.display = "none";
       nmapRes.style.display = "block";
