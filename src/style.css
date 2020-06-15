@@ -1,4 +1,3 @@
-/*BY AERO*/
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@175&display=swap');
 /* font-family: 'Public Sans', sans-serif; */
 @import url('https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap');
@@ -55,7 +54,7 @@ body
 {
   background-color: #acacac;
   margin: 0 auto;
-  display: block;
+  display: none;
 }    
 .mainbtns
 {
@@ -179,6 +178,16 @@ table td {
   border: 2 px solid rgb(175, 175, 175);
   word-break: break-all;
 }
+.loader
+{
+  width: 50%;
+  margin: 0 auto;
+}
+
+
+/* Google maps stuff*/
+.mapouter{position:relative;text-align:right;height:500px;width:100%;}
+.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:100%;}
 
 /* WEBKIT */
 ::-webkit-scrollbar {
@@ -270,4 +279,6 @@ table td {
   animation-duration: 8s;
   animation-iteration-count: infinite;
 }
+
+
 
