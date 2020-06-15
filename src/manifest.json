@@ -1,13 +1,16 @@
 {
     "name": "OpenView",
-    "version": "1.1",
-    "description": "Instant, in-depth information on the host of the current window.",
-    "permissions": ["activeTab","cookies"],
+    "version": "1.2",
+    "description": "Instant, in-depth information on the host of the current window plus search capability, directly from Chrome.",
+    "permissions": ["activeTab"],
+    "homepage_url": "https://github.com/aerobotpro/openview-chrome-extension",
+    "version_name": "beta",
     "background": {
       "scripts": ["scripts.js"],
       "persistent": false
     },
     "browser_action": {
+      "default_title": "main",
       "default_popup": "main.html",
       "default_icon": {
         "16": "ui/icon.png",
