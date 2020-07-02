@@ -69,9 +69,6 @@ const gmapCanvasMacro = document.getElementsByClassName('gmap_canvas');
 const gmapCanvasMacroOuter = document.getElementsByClassName('mapouter');
 
 
-//Quick Fix For AudioToggle not saving, now disabled by default.
- audioToggle.checked = true;
-
 
 // ONLOAD - UI
 for (var i = 0; i < alltacbtns.length; i++) {
