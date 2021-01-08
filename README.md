@@ -2,6 +2,8 @@
 - A Geo-IP extension for Chrome Browser.
 - Beta Version, [0.] 1.2.0.0 (development).
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/B0B636NHL)
+
 ### V1.2 Release Notes:
 - Added Google Maps Plugin
 - New button enumeration/faster UI.
