@@ -1,15 +1,4 @@
-/*
-> twitter.com/hostinfonet
-
-
-_BUG SQUASHING_
-Priority-Levels: Minor, Moderate, Critical
-
-BUGS:
-> NONE :)
-*/
-
-
+// 2020 - Made w/ <3 by A3R0
 var thisHostname;
 const defaultContext = "Welcome To OpenView!";
 const table = document.getElementById('resulttable');
